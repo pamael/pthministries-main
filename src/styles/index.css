@@ -1,0 +1,21 @@
+.eventsBar .col {
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+}
+
+.eventsBar p {
+  margin-bottom: 0.2em;
+  color: #6c757d;
+}
+
+.eventsBar p.title {
+  font-weight: bold;  
+  font-size: 1.2em;
+  padding-top: 0.5em;
+  color: #545b62;
+}
+
+.eventsBar p.sub-title {
+  font-weight: bold;
+  
+}
