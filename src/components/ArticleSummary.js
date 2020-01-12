@@ -3,6 +3,9 @@ import Badge from 'react-bootstrap/Badge'
 import React from "react";
 import Moment from 'react-moment'
 import parse from "html-react-parser"
+import image1 from "../images/devotion-pic.png"
+import image2 from "../images/Open-Bible-Medium.jpg"
+import image3 from "../images/Woman-reading-bible-prayer_si.jpg"
 
 export const summaryFromBody = (s,sLen=280) => {
     const regex = /(<([^>]+)>)|\"|“/ig;
@@ -21,15 +24,14 @@ export const Parsedhtml = ({s}) => {
 
 export const ImageSource = () => {
     const defaultSrc = [
-        "/images/devotion-pic.png",
-        "/images/Open-Bible-Medium.jpg",
+        image1,
+        image2,
         //"/images/person-reading-bible.jpg",
-        "/images/Woman-reading-bible-prayer_si.jpg"
+        image3
     ];
     return defaultSrc[Math.floor(defaultSrc.length * Math.random())]
 }
-//style={{'width': imgPct || '' }}
-//width={imgPct && true || imgWidth || 80}
+
 const ArticleSummary = ({summary}) => {
 
     const {fieldImage, body, imgPct, dtOffImage, publishDate, entityCreated} = summary;

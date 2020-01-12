@@ -1,31 +1,20 @@
 import Media from "react-bootstrap/Media";
 import React from "react";
 import Moment from 'react-moment'
-import { summaryFromBody } from './ArticleSummary'
+import { summaryFromBody, ImageSource } from './ArticleSummary'
 
 const ArticleSummaryHome = ({summary}) => {
 
     const {fieldImage, body} = summary;
 
-    const defaultSrc = [
-        "/images/devotion-pic.png",
-        "/images/Open-Bible-Medium.jpg",
-        //"/images/person-reading-bible.jpg",
-        "/images/Woman-reading-bible-prayer_si.jpg"
-    ];
-    let src = defaultSrc[Math.floor(defaultSrc.length * Math.random())]
-    let imgTitle="";
-
-    if (fieldImage) {
-        src = fieldImage.url;
-        imgTitle = fieldImage.alt;
-    }
     return (
         <Media className="pt-2" style={{borderTop: '1px dashed #ddd'}}>
             <div className="align-self-start mr-3" style={{ width: '30%'}}>
-                <img style={{ marginBottom : '0.5em', width: '100%'}}
-                    src={src}
-                    alt={imgTitle}
+                <img
+                    style={{width: '100%' }}
+                    src={fieldImage && fieldImage.url || ImageSource()}
+                    alt={fieldImage && fieldImage.alt || ''}
+                    className='mb-1'
                 />
                 <br/>
                 {summary.fieldTags.map(({tags, nid })=> 

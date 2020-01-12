@@ -4,7 +4,7 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import VIEW_QUERY from '../GraphQueries/VIEW_QUERY'
 import Moment from 'react-moment'
-import { summaryFromBody, Parsedhtml } from './ArticleSummary';
+import { summaryFromBody, Parsedhtml, ImageSource } from './ArticleSummary';
 
 export const SpacerH2 = () => (
   <h2 className="page-title title d-none d-md-block">&nbsp;</h2>
@@ -48,7 +48,7 @@ export const DisplaySmallImgLeft = ({summary}) => {
         <Col className={"pb-3"}>        
           <img
               width={60}
-              src={(summary.fieldImage && summary.fieldImage.src) || "/images/devotion-pic.png"}
+              src={(summary.fieldImage && summary.fieldImage.src) || ImageSource() }
               alt={(summary.fieldImage && summary.fieldImage.alt) || ''}
               className={'mr-2 mb-1 float-left'}
           />
