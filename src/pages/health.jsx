@@ -33,8 +33,8 @@ export default () => {
     // }});
     
     const pData = { 
-        sideBarLeft : [<ViewList tags={"devotional"} />, <ViewList tags={"media"} limit={3} dspStyle={1} />],
-        sideBarRight: [<ViewList tags={"devotional"} offset={1} />, <ViewList tags={"%"} notags={"devotional"} limit={10} dspStyle={2} />],
+        sideBarLeft : [<ViewList key={1} tags={"devotional"} />, <ViewList key={2} tags={"media"} limit={3} dspStyle={1} />],
+        sideBarRight: [<ViewList key={1} tags={"devotional"} offset={1} />, <ViewList key={2} tags={"%"} notags={"devotional"} limit={10} dspStyle={2} />],
         navBar : {
             brand : 'home'
         }

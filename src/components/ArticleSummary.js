@@ -2,6 +2,7 @@ import Media from "react-bootstrap/Media";
 import Badge from 'react-bootstrap/Badge'
 import React from "react";
 import Moment from 'react-moment'
+import { Link as GLink } from 'gatsby'
 import parse from "html-react-parser"
 import image1 from "../images/devotion-pic.png"
 import image2 from "../images/Open-Bible-Medium.jpg"
@@ -32,8 +33,8 @@ export const ImageSource = () => {
     return defaultSrc[Math.floor(defaultSrc.length * Math.random())]
 }
 
-const ArticleSummary = ({summary}) => {
-
+const ArticleSummary = ({summary, link}) => {
+    
     const {fieldImage, body, imgPct, dtOffImage, publishDate, entityCreated} = summary;
 
     return (
@@ -57,9 +58,9 @@ const ArticleSummary = ({summary}) => {
             </div>
             <Media.Body >
                 <h6 style={{textTransform: 'uppercase' }}>
-                    <a href={summary.link.path}>
+                    <GLink to={link || summary.link.path}>
                         {summary.title}
-                    </a>
+                    </GLink>
                 </h6>
                 {dtOffImage && <p className={'pt-0'} style={{fontSize: '0.8rem', fontWeight: 'bold'}}>
                     <Moment format='ddd, D MMM YYYY'>{publishDate && publishDate.value || entityCreated}</Moment>

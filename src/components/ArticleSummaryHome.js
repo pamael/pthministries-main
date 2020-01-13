@@ -2,6 +2,7 @@ import Media from "react-bootstrap/Media";
 import React from "react";
 import Moment from 'react-moment'
 import { summaryFromBody, ImageSource } from './ArticleSummary'
+import { Link as GLink } from "gatsby";
 
 const ArticleSummaryHome = ({summary}) => {
 
@@ -31,9 +32,9 @@ const ArticleSummaryHome = ({summary}) => {
             </div>
             <Media.Body >
                 <h6 style={{textTransform: 'uppercase', marginBottom: '0.5em' }}>
-                    <a href={summary.link.path}>
+                    <GLink to={`/article/?${summary.uuid}`}>
                         {summary.title}
-                    </a>
+                    </GLink>
                 </h6>
                 <div style={{ fontSize: '0.8em', textAlign: 'justify'}}>
                     {body.summaryProcessed ? <p>{summaryFromBody(body.summaryProcessed,150)}</p> : <p>{summaryFromBody(body.processed,150)}</p>}

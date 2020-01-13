@@ -7,7 +7,7 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import ArticleSummary from "../components/ArticleSummary";
 import Spinner from "../components/Spinner"
-import ViewList, { SpacerH2, DisplayMediumImgLeft } from '../components/ViewList';
+import ViewList from '../components/ViewList';
 
 export default () => {
     
@@ -18,7 +18,7 @@ export default () => {
     }});
     
     const pData = { 
-        sideBarLeft : [<ViewList tags={"devotional"} />, <ViewList tags={"media"} limit={3} dspStyle={1} />],
+        sideBarLeft : [<ViewList key={1} tags={"devotional"} />, <ViewList key={2} tags={"media"} limit={3} dspStyle={1} />],
         sideBarRight : false,
         navBar : {
             brand : 'home'
@@ -39,7 +39,10 @@ export default () => {
                 {data.nodeQuery.entities.map((summary, index) =>
                     <Row key={summary.nid}>
                         <Col > 
-                            <ArticleSummary summary={{...summary, imgPct: '30%', dtOffImage: true, useSummary: true}} />
+                            <ArticleSummary 
+                                link={`/article/?${summary.uuid}`}
+                                summary={{...summary, imgPct: '30%', dtOffImage: true, useSummary: true}} 
+                            />
                         </Col>
                     </Row>
                 )}

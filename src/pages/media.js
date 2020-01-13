@@ -17,8 +17,8 @@ export default () => {
     }});
     
     const pData = { 
-        sideBarLeft : [<ViewList tags={"devotional"} limit={3} />],
-        sideBarRight: [<ViewList tags={"%"} notags={"devotional"} limit={10} dspStyle={2} />],
+        sideBarLeft : [<ViewList key={1} tags={"devotional"} limit={3} />],
+        sideBarRight: [<ViewList key={2} tags={"%"} notags={"devotional"} limit={10} dspStyle={2} />],
         navBar : {
             brand : 'home'
         }
@@ -41,7 +41,10 @@ export default () => {
                     {data.nodeQuery.entities.map((summary, index) =>
                         <Row key={summary.nid}>
                             <Col > 
-                                <ArticleSummary summary={{...summary, imgPct: '30%', dtOffImage: true, useSummary: true}} />
+                                <ArticleSummary 
+                                    summary={{...summary, imgPct: '30%', dtOffImage: true, useSummary: true}} 
+                                    link={`/article/?${summary.uuid}`}
+                                />
                             </Col>
                         </Row>
                     )}

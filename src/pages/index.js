@@ -10,6 +10,7 @@ import { Parsedhtml } from '../components/ArticleSummary'
 //import poster4 from "../assets/PTHM Small Poster 4 Jan 2020 .pdf"
 import Spinner from "../components/Spinner"
 import Moment from 'react-moment';
+import { Link as GLink } from 'gatsby'
 
 import '../styles/index.css'
 
@@ -55,9 +56,9 @@ export default () => {
                             </Moment>
                         </span>
                         <h3 style={{ margin: '0.5em 0', fontWeight: "normal"}}>
-                            <a href={summary.path.path}>
+                            <GLink to={`/article/?${summary.uuid}`} href={summary.path.path}>
                                 {summary.title}
-                            </a>
+                            </GLink>
                         </h3>
                         <div style={{fontSize: '.95em', textAlign: 'justify'}}>
                             <Parsedhtml s={summary.body.summaryProcessed} />
@@ -67,7 +68,7 @@ export default () => {
                     <Col lg={5} md={12} >
                         {data.primary.entities.map((summary, index) =>
                             <div key={summary.nid} className={'pb-3'}>
-                                <a href={summary.path.path} style={{cursor: 'pointer'}}>
+                                <GLink to={`/article/?${summary.uuid}`} style={{cursor: 'pointer'}}>
                                     <img
                                         style={{width: '100%', marginBottom: '0.5em'  }}
                                         src={summary.image.url}
@@ -83,7 +84,7 @@ export default () => {
                                     <div style={{fontSize: '.9em', textAlign: 'justify'}}>
                                         <Parsedhtml s={summary.body.summaryProcessed} />
                                     </div>
-                                </a>
+                                </GLink>
                             </div>
                         )}                        
                     </Col>

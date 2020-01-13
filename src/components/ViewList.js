@@ -4,7 +4,8 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import VIEW_QUERY from '../GraphQueries/VIEW_QUERY'
 import Moment from 'react-moment'
-import { summaryFromBody, Parsedhtml, ImageSource } from './ArticleSummary';
+import { summaryFromBody, Parsedhtml, ImageSource } from './ArticleSummary'
+import { Link as GLink } from 'gatsby'
 
 export const SpacerH2 = () => (
   <h2 className="page-title title d-none d-md-block">&nbsp;</h2>
@@ -19,11 +20,11 @@ export default ({offset=0, limit=1, tags='', notags='', dspStyle=0}) => {
     notags: notags 
   }});
 
-  const DisplayStyles = ({summary}) => (
+  const DisplayStyles = ({summary, link}) => (
     [
-      <DisplaySmallImgLeft summary={summary} />,
-      <DisplayMediumImgLeft summary={summary} />,
-      <DisplayTitle summary={summary} />
+      <DisplaySmallImgLeft summary={summary} link={link}/>,
+      <DisplayMediumImgLeft summary={summary} link={link}/>,
+      <DisplayTitle summary={summary} link={link} />
     ][dspStyle]
   );
 
@@ -31,8 +32,8 @@ export default ({offset=0, limit=1, tags='', notags='', dspStyle=0}) => {
     <React.Fragment> 
       {data && data.nodeQuery && data.nodeQuery.entities.length > 0 && 
         <Col style = {{border: '1px solid #d0d0d0'}} className={'pt-2'} >              
-           {data.nodeQuery.entities.map((summary, index) => (
-             <DisplayStyles summary={summary} />
+           {data.nodeQuery.entities.map((summary) => (
+             <DisplayStyles key={summary.nid}  summary={summary} link={`/article/?${summary.uuid}`} />
            ))}
         </Col>
       }
@@ -40,11 +41,11 @@ export default ({offset=0, limit=1, tags='', notags='', dspStyle=0}) => {
   );
 }
 
-export const DisplaySmallImgLeft = ({summary}) => {
+export const DisplaySmallImgLeft = ({summary, link }) => {
 
   return (
     <React.Fragment>
-      <Row key={summary.nid}>                
+      <Row >                
         <Col className={"pb-3"}>        
           <img
               width={60}
@@ -53,9 +54,9 @@ export const DisplaySmallImgLeft = ({summary}) => {
               className={'mr-2 mb-1 float-left'}
           />
           <h6 style={{textTransform: 'uppercase' }}>
-              <a href={summary.link.path}>
+              <GLink to={link || summary.link.path}>
                   {summary.title}
-              </a>
+              </GLink>
           </h6>
           <p className={'pt-0'} style={{fontSize: '0.9rem', fontWeight: 'bold'}}>
               <Moment format='ddd, D MMM YYYY'>{summary.publishDate && summary.publishDate.value || summary.entityCreated}</Moment>
@@ -68,7 +69,7 @@ export const DisplaySmallImgLeft = ({summary}) => {
   )
 }
 
-export const DisplayMediumImgLeft = ({summary}) => {
+export const DisplayMediumImgLeft = ({summary, link}) => {
 
   return (
     <React.Fragment>
@@ -81,9 +82,9 @@ export const DisplayMediumImgLeft = ({summary}) => {
           />
           
           <h6>
-              <a href={summary.link.path}>
+              <GLink to={link || summary.link.path}>
                   {summary.title}
-              </a>
+              </GLink>
           </h6>
 
           <div style={{fontSize: '0.9rem', textAlign: 'justify' }}>
@@ -97,16 +98,16 @@ export const DisplayMediumImgLeft = ({summary}) => {
   )
 }
 
-export const DisplayTitle = ({summary}) => {
+export const DisplayTitle = ({summary, link}) => {
 
   return (
     <React.Fragment>
       <Row key={summary.nid}>                
       <Col>
         <h6 className="pb-0 mb-1">
-            <a href={summary.link.path}>
+            <GLink to={link || summary.link.path}>
                 {summary.title}
-            </a>
+            </GLink>
         </h6>
         <p className={'pt-0 mb-2'} style={{fontSize: '0.8rem'}}>
           <Moment fromNow>{summary.publishDate && summary.publishDate.value || summary.entityCreated}</Moment>
