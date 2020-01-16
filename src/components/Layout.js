@@ -22,19 +22,19 @@ export default ({children, layoutData})=> {
 
             <Container id="main" fluid={true} style={{maxWidth: 1440, paddingTop: '1rem'}}>
                 <Row className="row-offcanvas row-offcanvas-left clearfix">
-                    <main className="main-content col" id="content" role="main">
+                    <main className="main-content col col-sm-12 col-md-6 order-md-2" id="content" role="main">
                         {children}
                     </main>
 
                     {/*Draw left side bar is not switch off */}
                     {layoutData.sideBarLeft &&
-                    <Col md={3} className="sidebar order-first" id="sidebar_first" >
+                    <Col md={3} sm={6} className="sidebar order-md-1" id="sidebar_first" >
                         {layoutData.sideBarLeft}
                     </Col>}
 
                     {/*Draw right side bar is not switch off */}
                     {layoutData.sideBarRight &&
-                    <Col md={3} className="sidebar order-last" id="sidebar_second" >
+                    <Col md={3} sm={6} className="sidebar order-last" id="sidebar_second" >
                         {layoutData.sideBarRight}  
                     </Col>}
                 </Row>
