@@ -8,12 +8,12 @@ import Col from 'react-bootstrap/Col'
 import ArticleSummary from "../components/ArticleSummary";
 import Spinner from "../components/Spinner"
 import ViewList, { SpacerH2 } from '../components/ViewList';
-import Article from './article';
+//import Article from './article';
 
 export default ({location: { search }}) => {
 
     if(search !== '') {
-        return <Article slug={search} />
+        //return <Article slug={search} />
     }
     
     return <DevotionalHome />
@@ -22,7 +22,7 @@ export default ({location: { search }}) => {
 
 const DevotionalHome = () => {
 
-    const { loading, error, data } = useQuery(VIEW_QUERY, { variables: {
+    const { loading, data } = useQuery(VIEW_QUERY, { variables: {
         limit: 10, 
         tags: 'devotional',
     }});
@@ -49,7 +49,7 @@ const DevotionalHome = () => {
                     <Row>
                         {data.nodeQuery.entities.map((summary, index) =>
                             <Col sm={6} key={summary.nid}>                                
-                                <ArticleSummary summary={summary} link={`/article/?${summary.uuid}`} />
+                                <ArticleSummary summary={summary} link={`/articles/${summary.uuid}`} />
                             </Col>
                         )}
                     </Row>

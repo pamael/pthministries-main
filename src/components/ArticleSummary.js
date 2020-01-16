@@ -42,8 +42,8 @@ const ArticleSummary = ({summary, link}) => {
             <div className="align-self-start mr-3" style={{width: imgPct || '20%' }}>
                 <img
                     style={{width: '100%' }}
-                    src={fieldImage && fieldImage.url || ImageSource()}
-                    alt={fieldImage && fieldImage.alt || ''}
+                    src={(fieldImage && fieldImage.url )|| ImageSource()}
+                    alt={(fieldImage && fieldImage.alt) || ''}
                     className='mb-1'
                 />
                 <br/>
@@ -51,7 +51,7 @@ const ArticleSummary = ({summary, link}) => {
                 {!dtOffImage && <p className={'pt-1'} style={{fontWeight: 'bold'}}>                    
                     <Badge variant="secondary">
                         <Moment format='DD MMM YYYY'>
-                            {publishDate && publishDate.value || entityCreated}
+                            {(publishDate && publishDate.value) || entityCreated}
                         </Moment>
                     </Badge>
                 </p>}
@@ -63,11 +63,11 @@ const ArticleSummary = ({summary, link}) => {
                     </GLink>
                 </h6>
                 {dtOffImage && <p className={'pt-0'} style={{fontSize: '0.8rem', fontWeight: 'bold'}}>
-                    <Moment format='ddd, D MMM YYYY'>{publishDate && publishDate.value || entityCreated}</Moment>
+                    <Moment format='ddd, D MMM YYYY'>{(publishDate && publishDate.value) || entityCreated}</Moment>
                 </p>}
 
                 <div style={{ textAlign: 'justify' }}>
-                  {body.summaryProcessed && <Parsedhtml s ={ body.summaryProcessed}/> || summaryFromBody(body.processed) }
+                  {(body.summaryProcessed && <Parsedhtml s ={ body.summaryProcessed}/>) || summaryFromBody(body.processed) }
                 </div>
 
             </Media.Body>

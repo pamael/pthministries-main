@@ -13,7 +13,6 @@ import '../styles/styles.scss';
 
 export default ({children, layoutData})=> {
 
-    //const firstColumn = //[<SidebarLeft />,<RecentSummaryList />, <MediaSummaryList />]; //layoutData && layoutData.SidebarLeft;
     return (
         <React.Fragment> 
             <Container fluid={true} style={{maxWidth: 1440}}>
@@ -21,28 +20,25 @@ export default ({children, layoutData})=> {
                 <MyNavbarTwo navbarData={layoutData.navbar} />
             </Container>
 
-            {/* <div id="main-wrapper" className="layout-main-wrapper clearfix"> */}
-                <Container id="main" fluid={true} style={{maxWidth: 1440, paddingTop: '1rem'}}>
-                    <Row className="row-offcanvas row-offcanvas-left clearfix">
-                        <main className="main-content col" id="content" role="main">
-                            {children}
-                        </main>
+            <Container id="main" fluid={true} style={{maxWidth: 1440, paddingTop: '1rem'}}>
+                <Row className="row-offcanvas row-offcanvas-left clearfix">
+                    <main className="main-content col" id="content" role="main">
+                        {children}
+                    </main>
 
-                        {/*Draw left side bar is not switch off */}
-                        {layoutData.sideBarLeft &&
-                        <Col md={3} className="sidebar order-first" id="sidebar_first" >
-                            {layoutData.sideBarLeft}
-                        </Col>}
+                    {/*Draw left side bar is not switch off */}
+                    {layoutData.sideBarLeft &&
+                    <Col md={3} className="sidebar order-first" id="sidebar_first" >
+                        {layoutData.sideBarLeft}
+                    </Col>}
 
-                        {/*Draw right side bar is not switch off */}
-                        {layoutData.sideBarRight &&
-                        <Col md={3} className="sidebar order-last" id="sidebar_second" >
-                            {layoutData.sideBarRight}  
-                        </Col>}
-                    </Row>
-                </Container>
-            {/* </div> */}
-
+                    {/*Draw right side bar is not switch off */}
+                    {layoutData.sideBarRight &&
+                    <Col md={3} className="sidebar order-last" id="sidebar_second" >
+                        {layoutData.sideBarRight}  
+                    </Col>}
+                </Row>
+            </Container>
         </React.Fragment>
     );
 };

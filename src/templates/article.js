@@ -8,16 +8,15 @@ import Spinner from "../components/Spinner"
 import { Parsedhtml } from "../components/ArticleSummary"
 
 
-export default ({location: { search }}) => {
+export default ({articleID}) => {
+  console.log('@@', articleID)
 
-  if(search == '') {
+  if(articleID === '') {
     return <div>Error</div>
   }
 
-  //const slug = search.substr(1);
-
-  const { loading, error, data } = useQuery(VIEW_PAGE_QUERY, { variables: {
-      uid: search.substr(1),
+  const { loading, data } = useQuery(VIEW_PAGE_QUERY, { variables: {
+      uid: articleID,
   }});
   
   const pData = { 

@@ -33,7 +33,7 @@ export default ({offset=0, limit=1, tags='', notags='', dspStyle=0}) => {
       {data && data.nodeQuery && data.nodeQuery.entities.length > 0 && 
         <Col style = {{border: '1px solid #d0d0d0'}} className={'pt-2'} >              
            {data.nodeQuery.entities.map((summary) => (
-             <DisplayStyles key={summary.nid}  summary={summary} link={`/article/?${summary.uuid}`} />
+             <DisplayStyles key={summary.nid}  summary={summary} link={`/articles/${summary.uuid}`} />
            ))}
         </Col>
       }
@@ -59,7 +59,7 @@ export const DisplaySmallImgLeft = ({summary, link }) => {
               </GLink>
           </h6>
           <p className={'pt-0'} style={{fontSize: '0.9rem', fontWeight: 'bold'}}>
-              <Moment format='ddd, D MMM YYYY'>{summary.publishDate && summary.publishDate.value || summary.entityCreated}</Moment>
+              <Moment format='ddd, D MMM YYYY'>{(summary.publishDate && summary.publishDate.value) || summary.entityCreated}</Moment>
           </p>        
           {<p style={{fontSize: '0.9rem', textAlign: 'justify'}}>{summaryFromBody(summary.body.summaryProcessed || summary.body.processed, 200)}</p>}
         </Col>
@@ -110,7 +110,7 @@ export const DisplayTitle = ({summary, link}) => {
             </GLink>
         </h6>
         <p className={'pt-0 mb-2'} style={{fontSize: '0.8rem'}}>
-          <Moment fromNow>{summary.publishDate && summary.publishDate.value || summary.entityCreated}</Moment>
+          <Moment fromNow>{(summary.publishDate && summary.publishDate.value) || summary.entityCreated}</Moment>
         </p>               
       </Col>        
       </Row>

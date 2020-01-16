@@ -9,7 +9,7 @@ import ViewList, { SpacerH2 } from '../components/ViewList'
 
 export default () => {
     
-    const { loading, error, data } = useQuery(PAGE_QUERY, { variables: {
+    const { loading, data } = useQuery(PAGE_QUERY, { variables: {
         pageTag: "literature",
     }});
     

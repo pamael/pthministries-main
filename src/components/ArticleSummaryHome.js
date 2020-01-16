@@ -13,8 +13,8 @@ const ArticleSummaryHome = ({summary}) => {
             <div className="align-self-start mr-3" style={{ width: '30%'}}>
                 <img
                     style={{width: '100%' }}
-                    src={fieldImage && fieldImage.url || ImageSource()}
-                    alt={fieldImage && fieldImage.alt || ''}
+                    src={(fieldImage && fieldImage.url) || ImageSource()}
+                    alt={(fieldImage && fieldImage.alt) || ''}
                     className='mb-1'
                 />
                 <br/>
@@ -32,7 +32,7 @@ const ArticleSummaryHome = ({summary}) => {
             </div>
             <Media.Body >
                 <h6 style={{textTransform: 'uppercase', marginBottom: '0.5em' }}>
-                    <GLink to={`/article/?${summary.uuid}`}>
+                    <GLink to={`/articles/${summary.uuid}`}>
                         {summary.title}
                     </GLink>
                 </h6>

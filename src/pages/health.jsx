@@ -1,10 +1,8 @@
 import React from 'react'
 import ReactPlayer from 'react-player'
-// import { useQuery } from '@apollo/react-hooks'
 import SEO from "../components/seo";
 import Layout from '../components/Layout';
-// import PAGE_QUERY from '../GraphQueries/PAGE_QUERY';
-import ViewList, { SpacerH2 } from '../components/ViewList'
+import ViewList from '../components/ViewList'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 
@@ -24,13 +22,7 @@ const ResponsivePlayer = ({url}) => {
   
 }
 
-
-
 export default () => {
-    
-    // const { loading, error, data } = useQuery(PAGE_QUERY, { variables: {
-    //     pageTag: "about",
-    // }});
     
     const pData = { 
         sideBarLeft : [<ViewList key={1} tags={"devotional"} />, <ViewList key={2} tags={"media"} limit={3} dspStyle={1} />],

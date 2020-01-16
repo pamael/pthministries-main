@@ -7,17 +7,15 @@ import Col from 'react-bootstrap/Col'
 import HOME_QUERY from "../GraphQueries/HOME_QUERY"
 import ArticleSummaryHome from "../components/ArticleSummaryHome"
 import { Parsedhtml } from '../components/ArticleSummary'
-//import poster4 from "../assets/PTHM Small Poster 4 Jan 2020 .pdf"
 import Spinner from "../components/Spinner"
 import Moment from 'react-moment';
 import { Link as GLink } from 'gatsby'
 
 import '../styles/index.css'
 
-
 export default () => {
  
-  const { loading, error, data } = useQuery(HOME_QUERY);
+  const { loading, data } = useQuery(HOME_QUERY);
 
   const pData = { 
     sideBarLeft : false,
@@ -27,6 +25,7 @@ export default () => {
     }
   }
   return (
+    
     <Layout layoutData={pData}>
         <SEO title="Home" />
         
@@ -56,7 +55,7 @@ export default () => {
                             </Moment>
                         </span>
                         <h3 style={{ margin: '0.5em 0', fontWeight: "normal"}}>
-                            <GLink to={`/article/?${summary.uuid}`} href={summary.path.path}>
+                            <GLink to={`/articles/${summary.uuid}`} href={summary.path.path}>
                                 {summary.title}
                             </GLink>
                         </h3>
@@ -68,7 +67,7 @@ export default () => {
                     <Col lg={5} md={12} >
                         {data.primary.entities.map((summary, index) =>
                             <div key={summary.nid} className={'pb-3'}>
-                                <GLink to={`/article/?${summary.uuid}`} style={{cursor: 'pointer'}}>
+                                <GLink to={`/articles/${summary.uuid}`} style={{cursor: 'pointer'}}>
                                     <img
                                         style={{width: '100%', marginBottom: '0.5em'  }}
                                         src={summary.image.url}
@@ -145,9 +144,6 @@ export default () => {
             </Col>
         </Row>
         </React.Fragment>}       
-    </Layout>
-    
+    </Layout> 
   );
 }
-
-//export default IndexPage

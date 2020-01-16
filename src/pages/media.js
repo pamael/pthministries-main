@@ -11,7 +11,7 @@ import ViewList from '../components/ViewList'
 
 export default () => {
     
-    const { loading, error, data } = useQuery(VIEW_QUERY, { variables: {
+    const { loading, data } = useQuery(VIEW_QUERY, { variables: {
         limit: 5, 
         tags: 'media',
     }});
@@ -43,7 +43,7 @@ export default () => {
                             <Col > 
                                 <ArticleSummary 
                                     summary={{...summary, imgPct: '30%', dtOffImage: true, useSummary: true}} 
-                                    link={`/article/?${summary.uuid}`}
+                                    link={`/articles/${summary.uuid}`}
                                 />
                             </Col>
                         </Row>
