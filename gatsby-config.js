@@ -1,12 +1,12 @@
 module.exports = {
   siteMetadata: {
     title: `Present Truth & Health`,
-    abvTitle: 'PTH Ministries',
+    abvTitle: "PTH Ministries",
     description: `A deep study into present truth, prophecy and health`,
-    author: `PTHM Developers`,
+    author: `PTHM Developer`,
   },
   plugins: [
-    `gatsby-plugin-webpack-size`,  
+    `gatsby-plugin-webpack-size`,
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -31,8 +31,8 @@ module.exports = {
       },
     },
 
-    // 
-    
+    //
+
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
