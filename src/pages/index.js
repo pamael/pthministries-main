@@ -20,7 +20,7 @@ export default () => {
     sideBarLeft: false,
     sideBarRight: false,
     navBar: {
-      brand: "home",
+      brand: "homes",
     },
   }
   return (
