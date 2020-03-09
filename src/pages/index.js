@@ -25,13 +25,13 @@ export default () => {
   }
   return (
     <Layout layoutData={pData}>
-      <SEO title="Home." />
+      <SEO title="Home" />
 
       {loading && <Spinner />}
 
       {data && (
         <React.Fragment>
-          <h2 className={"page-title title"}>Home</h2>
+          <h2 className={"page-title title"}>Homes</h2>
           <Row>
             <Col lg={9} md={8} sm={12}>
               <Row>
