@@ -9,7 +9,7 @@ import image2 from "../images/Open-Bible-Medium.jpg"
 import image3 from "../images/Woman-reading-bible-prayer_si.jpg"
 
 export const summaryFromBody = (s,sLen=280) => {
-    const regex = /(<([^>]+)>)|\"|“/ig;
+    const regex = /(<([^>]+)>)|"|“/ig;
 
     s = s.replace(regex, ''); //remove html tags
 
