@@ -138,37 +138,41 @@ export default () => {
             style={{ marginTop: "0em", fontSize: "0.8em" }}
             className="eventsBar"
           >
+            <Col sm={12} md={6}><Row>
             <Col>
-              <p className="title">Next Event</p>
+              <p className="title">Weekly Study &amp; Worship Services</p>
               <p
                 style={{ color: "#52B1C7", fontWeight: "bold" }}
                 className="sub-title"
               >
-                Symposium - The God we worship (..cntd)
-              </p>
-              <p>Date: 18 January 2020</p>
-              <p>Venue: Irish World Heritage Center</p>
-              <p>
-                Times: 09.30hrs - 16.30hrs<sup>*</sup>
-              </p>
-              {/* <p><a href={poster4} download="poster-4.12.20.pdf" style={{ color: '#ce3f3f'}}>Download more information</a></p> */}
-            </Col>
-
-            <Col style={{ borderLeft: "3px solid #51BAD9" }}>
-              <p className="title">Future Events</p>
-              <p style={{ fontWeight: "bold" }} className="sub-title">
-                Study - TBC
-              </p>
-              <p>Date: 01 February 2020 </p>
-              <p>
-                Venue: <strong>Irish World Heritage Center</strong>
-              </p>
-              <p>
-                Times: 09.30hrs - 16.30hrs<sup>*</sup>
+                09.30hrs - 16.30hrs               
               </p>
             </Col>
-
             <Col>
+              <p>Old Chapel - Dunamis Center</p>
+              <p>(fmr Northmoor Methodist Church)</p>
+              <p>Northmoor Rd, M12 5RT</p>
+            </Col>
+            </Row>
+            <p><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9502.923898370545!2d-2.192577420231854!3d53.4553951725857!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x22c6d2909ce53509!2sDunamis%20Centre!5e0!3m2!1sen!2suk!4v1583270789102!5m2!1sen!2suk" 
+                 height="450" frameborder="0" style={{border:0, width: "100%"}} allowfullscreen=""></iframe>
+              </p>
+            </Col>
+            <Col sm={12} md={6} style={{ borderLeft: "3px solid #51BAD9", fontSize: "200%" }}>
+              <p className="title">April 2020 Bank Holiday Event</p>
+              <p style={{ fontWeight: "bold" }} className="sub-title">
+              Guest speaker: Nader Mansour
+              </p>
+              <p>Fri 10 to Sun 12 April</p>              
+              <p>
+                At <strong>Abraham Moss Primary School Hall</strong>
+              </p>
+              <p>
+                More details soon.
+              </p>
+            </Col>
+            
+            {/* <Col>
               <p className="title">&nbsp;</p>
               <p style={{ fontWeight: "bold" }} className="sub-title">
                 Study - TBC
@@ -178,9 +182,9 @@ export default () => {
               <p>
                 Times: 09.30hrs - 16.30hrs<sup>*</sup>
               </p>
-            </Col>
+            </Col> */}
 
-            <Col>
+            {/* <Col>
               <p className="title">&nbsp;</p>
               <p style={{ fontWeight: "bold" }} className="sub-title">
                 Symposium - TBC
@@ -190,7 +194,7 @@ export default () => {
               <p>
                 Times: 09.30hrs - 16.30hrs<sup>*</sup>
               </p>
-            </Col>
+            </Col> */}
           </Row>
           <Row>
             <Col>
